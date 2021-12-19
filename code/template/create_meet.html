@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% extends 'bootstrap/base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <form name="login" action="" method="post" novalidate>
+            <fieldset class="form-group">
+                <legend>{{title}}</legend> 
+                {{ form.hidden_tag() }}
+
+                <p>
+                    {{ form.scheduled_on.label }}<br>
+                    {% block scripts %}
+                        {{ super() }}
+                        {{ datepicker.loader() }} {# to load jQuery-ui #}
+                        {{ datepicker.picker(id=".dp", dateFormat='dd-mm-yy') }}
+                    {% endblock %}
+                </p>
+                <p>
+                    {{ form.scheduled_on.label }}<br>
+                    {{ form.dt(class='datepicker') }}
+                </p>
+                <p>
+                    {{ form.scheduled_on.label }}<br>
+                    {{ form.dt(class='datepicker') }}
+                </p>
+                <p>
+                    {{ form.subject.label }}<br>
+                    {{ form.subject(size=1000) }}
+                </p>
+                <p>
+                    {{ form.attendes.label }}<br>
+                    {{ form.dt(class='datepicker') }}
+                </p> 
+
+                <p>
+                    {{ form.submit() }}
+                </p>
+            </fieldset>
+        </form>
+    </div>
+</div>
+{% endblock %}

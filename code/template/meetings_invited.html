@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1>My Invitations</h1>
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            
+            {% if not meetings %}
+                <h1>You do not have any meetings today.</h1>
+            {% else %}
+                <h1>Today's Meeting</h1>
+
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Meeting ID</th>
+                        <th scope="col">Created On</th>
+                        <th scope="col">Created By</th>
+                        <th scope="col">Scheduled On</th>
+                        <th scope="col">Start Time</th>
+                        <th scope="col">End Time</th>
+                        <th scope="col">Join</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <!-- Construct the rest of courses here -->
+                    {% for meet in meetings %}
+                    <tr>
+                        <td scope='row'>{{ class.r2["meeting_id"] }}</td>
+                        <td>{{ class.r2["created_on"] }}</td>
+                        <td>{{ class.r2["created_by"] }}</td>
+                        <td>{{ class.r2["scheduled_on"] }}</td>
+                        <td>{{ class.r2["start_time"] }}</td>
+                        <td>{{ class.r2["end_time"] }}</td>                        
+                    </tr>
+                    {% endfor %}
+                    
+                    </tbody>
+                </table>
+                
+                {% endif %}
+            <p><a href="{{ url_for ('create_meet.html') }}">Create New Meeting?</a></a></p>
+        </div>
+    </div>
+{% endblock %}

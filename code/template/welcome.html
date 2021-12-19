@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1>Welcome to Meet Scheduler App.</h1>
+
+            {% if session['username'] %}
+                <h3>Let's get started.</h3>
+            {% else %}
+                <p>Already registered? <a href="{{url_for('login') }}">Login</a></p>
+            {% endif %}
+
+            <div style="text-align:left;">
+                <h2>What Is Meet App?</h2> 
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, delectus. Modi aut vitae aliquid molestias corrupti laborum culpa neque et harum id. Velit neque, minus deleniti sed temporibus maxime distinctio?</p>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
